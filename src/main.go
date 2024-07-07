@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-// OrderType defines whether the order is a buy or sell order
 type OrderType string
 
 const (
@@ -39,7 +38,6 @@ func NewOrder(id string, orderType OrderType, price float64, quantity float64) O
 	}
 }
 
-// AddOrder adds an order to the order book
 func (ob *OrderBook) AddOrder(order Order) {
 	fmt.Printf("Added order: %s %f @ %f \n", order.Type, order.Quantity, order.Price)
 
@@ -62,7 +60,6 @@ func (ob *OrderBook) AddOrder(order Order) {
 	}
 }
 
-// MatchOrders matches buy and sell orders
 func (ob *OrderBook) MatchOrders() {
 	for len(ob.BuyOrders) > 0 && len(ob.SellOrders) > 0 {
 		buyOrder := ob.BuyOrders[0]
